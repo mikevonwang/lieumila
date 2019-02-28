@@ -18,7 +18,7 @@ export function Internationalizer(props) {
 
 const Lieumila = {
   withTranslations,
-  Wrapper,
+  Internationalizer,
 };
 
 export default Lieumila;
