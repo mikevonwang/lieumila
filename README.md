@@ -76,7 +76,7 @@ export default Lieumila.withTranslations(Content)(SheetMusic);
 ```javascript
 function SheetMusic(props) {
   return (
-    <h1>{t('title')}</h1>
+    <h1>{props.t('title')}</h1>
   );
 }
 ```
