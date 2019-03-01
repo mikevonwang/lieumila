@@ -1,23 +1,18 @@
-import React from 'react';
+let lang = '';
 
-const AppContext = React.createContext(null);
-
-export function withTranslations(content) {
-  return function Connect(Component) {
-    return function HOC(props) {
-      return React.createElement(AppContext.Consumer, null, ((lang) => {
-        return React.createElement(Component, {t: (key) => content[lang][key]}, props.children);
-      }));
-    };
+export function Localizer(dictionary) {
+  return function T(item) {
+    return dictionary[lang][item];
   }
-};
+}
 
 export function Internationalizer(props) {
-  return React.createElement(AppContext.Provider, {value: props.lang}, props.children);
+  lang = props.lang
+  return props.children;
 };
 
 const Lieumila = {
-  withTranslations,
+  Localizer,
   Internationalizer,
 };
 
