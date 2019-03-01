@@ -1,6 +1,6 @@
 # Lïeumïla
 
-Lïeumïla is a A lightweight internationalizer for React.
+Lïeumïla is a lightweight internationalizer for React.
 
 ## Installation
 
@@ -49,34 +49,31 @@ class App extends React.Component {
 }
 ```
 
-**3.** For each component you want to use Lïeumïla with, construct a `dictionary` with your valid language codes:
+**3.** For each component you want to use Lïeumïla with, construct a dictionary with your language codes as keys, and your localizations as values:
 
 ```javascript
-const Content = {
+const dictionary = {
   en: {
-    title: 'A little serenade',
+    title: 'Hello World!',
   },
   de: {
-    title: 'Eine kleine Nachtmusik',
+    title: 'Hallo Welt!',
   },
 };
 ```
 
-**4.** Connect each component to Lïeumïla with `Lieumila.withTranslations` and the `dictionary` you just created:
-```javascript
-// Instead of exporting `SheetMusic` directly, export its connected version below.
-function SheetMusic() {
-  return ();
-}
+**4.** Assign a call to `Lieumila.Localizer` to a constant, giving the `Localizer` the dictionary you just created:
 
-export default Lieumila.withTranslations(Content)(SheetMusic);
+```javascript
+// We can call this constant anything we want; `T` is convenient
+const T = Lieumila.Localizer(dictionary);
 ```
 
-**5.** Use `t()` to access your translations:
+**5.** The constant you just defined is actually a function, which takes in a key from your dictionary. Use this function to access your localizations:
 ```javascript
-function SheetMusic(props) {
+function ExampleComponent(props) {
   return (
-    <h1>{props.t('title')}</h1>
+    <h1>{T('title')}</h1>
   );
 }
 ```
