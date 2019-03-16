@@ -1,6 +1,6 @@
 {
   "name": "lieumila",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A lightweight internationalizer for React",
   "browser": "index.js",
   "author": {
@@ -23,6 +23,8 @@
   },
   "keywords": [
     "internationalization",
-    "i18n"
+    "i18n",
+    "localization",
+    "l10n",
   ]
 }
