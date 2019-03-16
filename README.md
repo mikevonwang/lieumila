@@ -106,13 +106,15 @@ This function accepts a `dictionary`, and returns a function that selects the ap
 
 ##### `dictionary` **Object** *required*
 
-An object where each key is a language code. The values can be either arrays or objects, but each value in a single dictionary should have the same schema. See step 3 in "Usage and Example" for an example dictionary.
+An object where each key is a language code. The values can be either arrays or objects, but each value in a single dictionary should have the same schema. If a `default_lang` has been defined, then values that correspond to languages that are not the `default_lang` can be `null`.
+
+See step 3 in "Usage and Example" for an example dictionary.
 
 #### Returns
 
 ##### `T(key)` **Function**
 
-`T()` automatically knows the current language setting of your app. This function accepts a `key` string parameter, and should be used in your React Components to render localized text. See step 4 in "Usage and Example" for an example.
+`T()` automatically knows the current language setting of your app. It accepts a `key` string parameter, and should be used in your React Components to render localized text. See step 4 in "Usage and Example" for an example.
 
 ---
 
@@ -129,7 +131,7 @@ plugins: [
 ],
 ```
 
-`L` contains 7 functions. These are:
+`L` contains several functions:
 
 - `L.text()`
 - `L.p()`
@@ -138,6 +140,10 @@ plugins: [
 - `L.span()`
 - `L.sup()`
 - `L.sub()`
+- `L.ul()`
+- `L.ol()`
+- `L.li()`
+- `L.a()`
 
 Each of these accepts two parameters: `text` and `props` (except for `L.text()`, which only accepts `text`).
 
@@ -177,8 +183,8 @@ const dictionary = {
 
 ##### `props` **Object** *optional*
 
-This parameter is an array of props to pass to the React Component returned by the `L` function. `L.text()` does not accept this parameter, because it is the only `L` function that returns a bare text node.
+This parameter is an object of props to pass to the React Component returned by the `L` function. `L.text()` does not accept this parameter, because it is the only `L` function that returns a React Fragment instead of a React Component.
 
 #### Returns
 
-Either a React Component corresponding to the `L` function used, or a bare text node in the case of `L.text()`.
+Either a React Component corresponding to the `L` function used, or a React Fragment in the case of `L.text()`.

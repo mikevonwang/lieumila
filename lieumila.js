@@ -51,10 +51,26 @@ export const L = {
   sub: function(text, props) {
     return compose('sub', text, props);
   },
+
+  ul: function(text, props) {
+    return compose('ul', text, props);
+  },
+
+  ol: function(text, props) {
+    return compose('ol', text, props);
+  },
+
+  li: function(text, props) {
+    return compose('li', text, props);
+  },
+
+  a: function(text, props) {
+    return compose('a', text, props);
+  },
 };
 
 function compose(tag, text = '', props = null) {
-  const child = (typeof text === 'string') ? text : text.map((node,i) => {
+  const child = (!Array.isArray(text)) ? text : text.map((node,i) => {
     return React.createElement(React.Fragment, {key: i}, node);
   });
   return React.createElement(tag, props, child);
