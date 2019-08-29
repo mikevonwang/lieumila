@@ -16,7 +16,7 @@ After installation, there are 5 main steps to using Lïeumïla:
 import Lieumila from 'lieumila';
 ```
 
-If you use Webpack, you could instead include Lïeumïla in Webpack's `providePlugin()`, and avoid having to write the above `import` statement over and over:
+If you use Webpack, you could instead include Lïeumïla in Webpack's `ProvidePlugin()`, and avoid having to write the above `import` statement over and over:
 
 ```javascript
 plugins: [
